@@ -29,7 +29,7 @@ const PlayerRankCard: React.FC<IPlayerRank> = ({
             <span>#{userUtils.getHashtag(user).toUpperCase()}</span>
           </div>
         </div>
-        <div></div>
+        <div className={styles.rank}></div>
       </div>
       <div className={styles.middle}>
         <div className={styles.ladderPoints}>
