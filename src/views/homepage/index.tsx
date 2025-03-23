@@ -1,9 +1,15 @@
-import { PlayerRankCard } from "@/components";
+import { PlayerRankCard, RankingTable } from "@/components";
 import { fetchPlayers } from "@/services";
 import styles from "./styles.module.scss";
 
 const Homepage = async () => {
   const playersData = await fetchPlayers();
+
+  const getColor = (idx: number) => {
+    if (idx === 0) return styles.first;
+    if (idx === 1) return styles.second;
+    return styles.third;
+  };
 
   return (
     <div className={styles.homepage}>
@@ -21,22 +27,12 @@ const Homepage = async () => {
                 wins={player.wins}
                 losses={player.losses}
                 lastChampions={player.last_games}
+                className={getColor(idx)}
               />
             ))}
           </div>
 
-          {/* <Table
-            header={["Posição", "Jogador", "PDL", "Winrate"]}
-            data={[
-              ["4", "CookiexT", "99%", <h1>Testando</h1>],
-              ["5", "Zikardinho", "69%", "2280PDL"],
-              ["4", "CookiexT", "69%", "2280PDL"],
-              ["4", "CookiexT", "69%", "2280PDL"],
-              ["4", "CookiexT", "69%", "2280PDL"],
-              ["4", "CookiexT", "69%", "2280PDL"],
-              ["4", "CookiexT", "69%", "2280PDL"],
-            ]}
-          /> */}
+          <RankingTable players={playersData.players} />
         </div>
       </div>
     </div>

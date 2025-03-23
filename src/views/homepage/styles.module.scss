@@ -1,7 +1,6 @@
 .homepage {
   background-color: var(--color-neutral-darker);
   color: var(--color-neutral-lightest);
-  height: 100dvh;
   padding: 8px 12px;
 
   .content {
@@ -15,8 +14,52 @@
   }
 
   .topPlayers {
+    margin-bottom: 16px;
+
     > div:not(:last-of-type) {
-      margin-bottom: 16px;
+      margin: 0 0 16px 0;
+    }
+  }
+}
+
+.first {
+  > div > p {
+    color: #dfb32c !important;
+  }
+}
+
+.second {
+  > div > p {
+    color: #acb9c2 !important;
+  }
+}
+
+.third {
+  > div > p {
+    color: #e57424 !important;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .homepage {
+    padding: 60px 12px;
+
+    .content {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    .topPlayers {
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        max-width: 32%;
+      }
+
+      > div:not(:last-of-type) {
+        margin: 0;
+      }
     }
   }
 }

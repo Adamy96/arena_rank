@@ -1,4 +1,4 @@
-interface IPlayer {
+export interface IPlayer {
   colocacao: number;
   delta_mmr: number;
   last_games: number[];

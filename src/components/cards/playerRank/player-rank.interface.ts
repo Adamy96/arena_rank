@@ -1,4 +1,4 @@
-export interface IPlayerRank {
+export interface IPlayerRankProps {
   rank: number;
   points: number;
   icon: number;
@@ -7,4 +7,5 @@ export interface IPlayerRank {
   losses: number;
   winrate: number;
   lastChampions: number[];
+  className?: string;
 }

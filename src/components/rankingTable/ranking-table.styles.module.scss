@@ -1,0 +1,63 @@
+.tableContainer {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  gap: 10px;
+}
+
+.tableCell,
+.headerCell {
+  padding: 2px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-neutral-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableHeader {
+  font-weight: bold;
+}
+
+.tableHeader {
+  grid-template-columns: 3fr 1fr 1fr;
+}
+
+.tableRow {
+  grid-template-columns: 3fr 1fr 1fr;
+  background-color: #1e1d22;
+  box-shadow: rgba(255, 255, 255, 0.06) 0px 2px 4px 0px inset;
+  border-radius: 4px;
+  height: 36px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 4px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .tableHeader {
+    grid-template-columns: 3fr 1fr 3fr 1fr 2fr;
+  }
+
+  .tableRow {
+    height: 42px;
+    grid-template-columns: 3fr 1fr 3fr 1fr 2fr;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .tableHeader > :nth-child(4),
+  .tableHeader > :nth-child(5),
+  .tableRow > :nth-child(4),
+  .tableRow > :nth-child(5) {
+    display: none;
+  }
+}

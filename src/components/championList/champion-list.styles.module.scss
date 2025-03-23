@@ -1,0 +1,14 @@
+.championList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  img {
+    border-radius: 8px;
+
+    &:not(:last-of-type) {
+      margin-right: 4px;
+    }
+  }
+}

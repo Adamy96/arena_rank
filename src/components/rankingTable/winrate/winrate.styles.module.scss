@@ -1,0 +1,55 @@
+.winrate {
+  color: var(--color-neutral-lightest);
+
+  p {
+    display: none;
+  }
+
+  div {
+    padding: 4px 0;
+    width: 48px;
+    border-radius: 4px;
+  }
+}
+
+.low {
+  background-color: #808080;
+}
+
+.medium {
+  background-color: #b8860b;
+}
+
+.high {
+  background-color: #aa66cc;
+}
+
+.ultra {
+  background-color: #cc3333;
+}
+
+@media only screen and (min-width: 1024px) {
+  .winrate {
+    display: flex;
+    align-items: stretch;
+    width: 60%;
+    border-radius: 4px;
+    overflow: hidden;
+
+    p {
+      background-color: rgba(222, 204, 251, 0.1);
+      flex: 1;
+      display: block;
+      line-height: 24px;
+      font-size: 10px;
+
+      strong {
+        font-size: 12px;
+      }
+    }
+
+    div {
+      border-radius: 0;
+    }
+  }
+}

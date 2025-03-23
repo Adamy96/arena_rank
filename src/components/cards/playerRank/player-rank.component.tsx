@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
-import type { IPlayerRank } from "./player-rank.interface";
+import { ChampionList } from "@/components";
+import type { IPlayerRankProps } from "./player-rank.interface";
+import { useWindowSize } from "@/hooks";
 import styles from "./player-rank.styles.module.scss";
 import { userUtils } from "@/utils";
 
-const PlayerRankCard: React.FC<IPlayerRank> = ({
+const PlayerRankCard: React.FC<IPlayerRankProps> = ({
   rank,
   points,
   icon,
@@ -12,9 +16,14 @@ const PlayerRankCard: React.FC<IPlayerRank> = ({
   losses,
   winrate,
   lastChampions = [],
+  className,
 }) => {
+  const { isDesktop } = useWindowSize();
+
   return (
-    <div className={styles.playerRankCard}>
+    <div
+      className={`${styles.playerRankCard}${className ? ` ${className}` : ""}`}
+    >
       <div className={styles.header}>
         <p className={styles.rank}>{rank}</p>
         <div className={styles.userContainer}>
@@ -34,8 +43,8 @@ const PlayerRankCard: React.FC<IPlayerRank> = ({
       <div className={styles.middle}>
         <div className={styles.ladderPoints}>
           <Image
-            width={32}
-            height={32}
+            width={isDesktop ? 40 : 32}
+            height={isDesktop ? 40 : 32}
             alt="Emblema do ranking (challanger)"
             src="https://dpm.lol/rank/CHALLENGER_SMALL.webp"
           />
@@ -43,7 +52,8 @@ const PlayerRankCard: React.FC<IPlayerRank> = ({
         </div>
         <div className={styles.matches}>
           <p>
-            <strong>{wins}</strong> W - <strong>{losses}</strong> L ({winrate}%)
+            <strong>{wins}</strong> W - <strong>{losses}</strong> L{" "}
+            <strong>({winrate}%)</strong>
           </p>
         </div>
       </div>
@@ -52,20 +62,10 @@ const PlayerRankCard: React.FC<IPlayerRank> = ({
           <p>{wins + losses}</p>
           <span>jogos</span>
         </div>
-        <div className={styles.lastChampions}>
-          {lastChampions.slice(0, 4).map((championId, idx) => (
-            <Image
-              key={idx}
-              width={28}
-              height={28}
-              alt="Emblema do ranking (challanger)"
-              src={`https://cdn.communitydragon.org/15.6.1/champion/${championId}/square`}
-            />
-          ))}
-        </div>
+        <ChampionList championIds={lastChampions} size={32} displayMax={4} />
         <div className={styles.averagePlacement}>
-          <p>6.5</p>
-          <span>posição média</span>
+          <p>null</p>
+          <span>média</span>
         </div>
       </div>
     </div>

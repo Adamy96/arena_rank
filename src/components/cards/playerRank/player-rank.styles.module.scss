@@ -1,5 +1,5 @@
 .playerRankCard {
-  background-color: var(--color-neutral-darker);
+  background-color: #18191d;
   padding: 12px 16px;
   border: 1px solid hsla(0, 0%, 100%, 0.1);
   border-radius: 4px;
@@ -29,7 +29,7 @@
         p {
           font-size: 14px;
           font-weight: 600;
-          color: var(--color-yellow);
+          color: #ffdc75e6;
         }
 
         span {
@@ -56,13 +56,13 @@
 
     .matches {
       display: none;
-      font-size: 12px;
+      font-size: 10px;
       line-height: 150%;
       color: var(--color-neutral-lighter);
       text-align: center;
 
       strong {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }
@@ -90,18 +90,6 @@
       }
     }
 
-    .lastChampions {
-      height: 28px;
-
-      img {
-        border-radius: 8px;
-
-        &:not(:last-of-type) {
-          margin-right: 4px;
-        }
-      }
-    }
-
     .averagePlacement {
       width: 75px;
       display: flex;
@@ -119,6 +107,76 @@
       span {
         font-size: 10px;
         color: var(--color-neutral-medium);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .playerRankCard {
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .rank {
+        width: 40px;
+        color: var(--color-yellow);
+        font-size: 24px;
+        font-weight: 900;
+        line-height: 150%;
+      }
+
+      .userContainer {
+        display: flex;
+        align-items: center;
+
+        .user {
+          p {
+            font-size: 16px;
+          }
+
+          span {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+
+    .middle {
+      margin: 24px auto;
+
+      .matches {
+        display: block;
+      }
+
+      .ladderPoints {
+        font-size: 32px;
+        gap: 8px;
+      }
+    }
+
+    .footer {
+      .gameCount {
+        gap: 0;
+        p {
+          font-size: 14px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+      }
+
+      .averagePlacement {
+        gap: 0;
+        p {
+          font-size: 14px;
+        }
+
+        span {
+          font-size: 12px;
+        }
       }
     }
   }
