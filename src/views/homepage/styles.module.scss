@@ -1,0 +1,22 @@
+.homepage {
+  background-color: var(--color-neutral-darker);
+  color: var(--color-neutral-lightest);
+  height: 100dvh;
+  padding: 8px 12px;
+
+  .content {
+    background-color: var(--color-neutral-darkest);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+
+  .rankingContainer {
+  }
+
+  .topPlayers {
+    > div:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+  }
+}
