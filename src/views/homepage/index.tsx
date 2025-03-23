@@ -1,4 +1,4 @@
-import { Table, PlayerRankCard } from "@/components";
+import { PlayerRankCard } from "@/components";
 import { fetchPlayers } from "@/services";
 import styles from "./styles.module.scss";
 
@@ -25,7 +25,7 @@ const Homepage = async () => {
             ))}
           </div>
 
-          <Table
+          {/* <Table
             header={["Posição", "Jogador", "PDL", "Winrate"]}
             data={[
               ["4", "CookiexT", "99%", <h1>Testando</h1>],
@@ -36,7 +36,7 @@ const Homepage = async () => {
               ["4", "CookiexT", "69%", "2280PDL"],
               ["4", "CookiexT", "69%", "2280PDL"],
             ]}
-          />
+          /> */}
         </div>
       </div>
     </div>

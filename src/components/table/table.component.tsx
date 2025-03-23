@@ -1,10 +1,7 @@
 import type { ITable } from "./table.interface";
-import useTable from "./table.hook";
 import styles from "./table.styles.module.scss";
 
 const Table: React.FC<ITable> = ({ header, data, className = "" }) => {
-  const { doSomething } = useTable();
-
   return (
     <table className={`${styles.table}${className ? ` ${className}` : ""}`}>
       <thead>
