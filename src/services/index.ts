@@ -1,1 +1,2 @@
-export { default as fetchPlayers } from "./fetchPlayers";
+export * from "./fetchPlayers";
+export * from "./test";

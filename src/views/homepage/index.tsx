@@ -14,7 +14,7 @@ const Homepage = async () => {
   return (
     <div className={styles.homepage}>
       <div className={styles.content}>
-        <div className={styles.test}></div>
+        <div className={styles.test}>Versão de desenvolvimento</div>
 
         <div className={styles.rankingContainer}>
           <div className={styles.topPlayers}>

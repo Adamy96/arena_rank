@@ -1,3 +1,5 @@
+import { revalidateTag } from "next/cache";
+
 export interface IPlayer {
   colocacao: number;
   delta_mmr: number;
@@ -30,7 +32,12 @@ const fetchPlayers = async (): Promise<IResponse> => {
   "use server";
 
   try {
-    const response = await fetch("https://arenaapi.zapto.org:3000/api/players");
+    const response = await fetch(
+      "https://arenaapi.zapto.org:3000/api/players",
+      {
+        next: { tags: ["players"], revalidate: 300 },
+      }
+    );
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
     }
@@ -40,4 +47,9 @@ const fetchPlayers = async (): Promise<IResponse> => {
   }
 };
 
-export default fetchPlayers;
+const revalidatePlayersData = async () => {
+  "use server";
+  await revalidateTag("players");
+};
+
+export { fetchPlayers, revalidatePlayersData };
