@@ -1,0 +1,21 @@
+.header {
+  height: 60px;
+  background-color: var(--color-neutral-darkest);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 5px 7px 0px rgba(88, 121, 145, 0.1);
+
+  button {
+    border: 0;
+    border: 1px solid var(--color-neutral-medium);
+    padding: 8px 16px;
+    background-color: var(--color-yellow);
+    border-radius: 6px;
+    color: var(--color-neutral-darkest);
+    font-size: 12px;
+    font-weight: 700;
+  }
+}

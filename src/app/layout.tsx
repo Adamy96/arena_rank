@@ -1,5 +1,7 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata } from "next";
+import { Header } from "@/components";
+import styles from "./layout.styles.module.scss";
 import "@/styles/main.scss";
 
 export const metadata: Metadata = {
@@ -19,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={plusJakartaSans.className}>{children}</body>
+      <body className={`${plusJakartaSans.className} ${styles.body}`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

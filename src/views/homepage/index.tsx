@@ -14,6 +14,8 @@ const Homepage = async () => {
   return (
     <div className={styles.homepage}>
       <div className={styles.content}>
+        <div className={styles.test}></div>
+
         <div className={styles.rankingContainer}>
           <div className={styles.topPlayers}>
             {playersData.players.slice(0, 3).map((player, idx) => (
