@@ -35,7 +35,7 @@ const fetchPlayers = async (): Promise<IResponse> => {
     const response = await fetch(
       "https://arenaapi.zapto.org:3000/api/players",
       {
-        next: { tags: ["players"], revalidate: 300 },
+        next: { tags: ["players"], revalidate: 120 },
       }
     );
     if (!response.ok) {

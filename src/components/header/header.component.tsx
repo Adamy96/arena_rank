@@ -5,7 +5,9 @@ import styles from "./header.styles.module.scss";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <button onClick={() => alert("Clicked")}>Adicionar jogador</button>
+      <button onClick={() => alert("Under development")}>
+        Adicionar jogador
+      </button>
     </header>
   );
 };

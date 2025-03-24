@@ -40,6 +40,6 @@ const TestPage = async () => {
   );
 };
 
-export const revalidate = 10;
+export const revalidate = 5;
 
 export default TestPage;

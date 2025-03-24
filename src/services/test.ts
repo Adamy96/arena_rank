@@ -5,7 +5,13 @@ const fetchTest = async () => {
 
   try {
     const response = await fetch(
-      "https://67e0f4d958cc6bf78523890d.mockapi.io/teste"
+      "https://67e0f4d958cc6bf78523890d.mockapi.io/teste",
+      {
+        next: {
+          tags: ["teste"],
+          revalidate: 5,
+        },
+      }
     );
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);

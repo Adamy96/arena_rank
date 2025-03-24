@@ -1,5 +1,5 @@
 import { PlayerRankCard, RankingTable } from "@/components";
-import { fetchPlayers } from "@/services";
+import { fetchPlayers, revalidatePlayersData } from "@/services";
 import styles from "./styles.module.scss";
 
 const Homepage = async () => {
@@ -17,6 +17,9 @@ const Homepage = async () => {
         <div className={styles.test}>Versão de desenvolvimento</div>
 
         <div className={styles.rankingContainer}>
+          <button onClick={revalidatePlayersData} className={styles.refresh}>
+            Atualizar ranking
+          </button>
           <div className={styles.topPlayers}>
             {playersData.players.slice(0, 3).map((player, idx) => (
               <PlayerRankCard
@@ -43,4 +46,4 @@ const Homepage = async () => {
 
 export default Homepage;
 
-export const revalidate = 300;
+export const revalidate = 120;
