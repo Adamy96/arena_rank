@@ -27,6 +27,8 @@ interface IResponse {
 }
 
 const fetchPlayers = async (): Promise<IResponse> => {
+  "use server";
+
   try {
     const response = await fetch("https://arenaapi.zapto.org:3000/api/players");
     if (!response.ok) {

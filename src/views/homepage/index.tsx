@@ -42,3 +42,5 @@ const Homepage = async () => {
 };
 
 export default Homepage;
+
+export const revalidate = 300;
