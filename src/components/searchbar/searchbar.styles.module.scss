@@ -1,0 +1,48 @@
+.searchBar {
+  width: 100%;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 100%;
+
+  .input {
+    width: 100%;
+    background-color: var(--color-neutral-medium);
+    color: var(--color-neutral-lighter);
+    border: 0;
+
+    padding: 6px 12px;
+    height: 100%;
+    outline-style: none;
+
+    &::placeholder {
+      color: var(--color-neutral-light);
+    }
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--color-main-dark);
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .searchBar {
+    .input {
+      padding: 6px 24px;
+    }
+
+    .button {
+      width: 50px;
+    }
+  }
+}
