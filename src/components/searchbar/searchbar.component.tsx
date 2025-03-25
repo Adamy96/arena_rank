@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useDebounce } from "@/hooks";
 import { search } from "../../../public/svgs";
+import type { ISearchBarProps } from "./searchbar.interface";
 import styles from "./searchbar.styles.module.scss";
 
 const SearchBar: React.FC<ISearchBarProps> = ({

@@ -1,4 +1,4 @@
-interface ICollapseButton {
+export interface ICollapseButton {
   icon: {
     src: string;
     width: number;
