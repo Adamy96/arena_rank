@@ -1,5 +1,3 @@
-"use client";
-
 import { AddAccount } from "./AddAccount";
 import { useModals } from "@/hooks";
 import styles from "./modals.styles.module.scss";
@@ -23,7 +21,7 @@ const Modals = () => {
       : "";
   };
 
-  const content = {
+  const content: { [key in ModalIdsType]: React.ReactNode } = {
     addAccount: (
       <AddAccount
         className={`${styles.modalContent} ${styles.rightToLeft} ${openStyles(
@@ -44,32 +42,31 @@ const Modals = () => {
   };
 
   return (
-    <>
-      <div className={styles.modalContainer}>
-        <div
-          className={`${styles.modalOverlay} ${
-            modalState.open.length ? styles.open : ""
-          }`}
-          onClick={closeLast}
-        ></div>
+    <div className={styles.modalContainer}>
+      <div
+        className={`${styles.modalOverlay} ${
+          modalState.open.length ? styles.open : ""
+        }`}
+        onClick={closeLast}
+      ></div>
 
-        {Object.keys(content)
-          .map((key: ModalIdsType) => {
-            const show = isModalVisible(key);
-            return (
-              show && (
-                <div
-                  style={{ zIndex: getZindex("addAccount"), position: "fixed" }}
-                  key={key}
-                >
-                  {content[key]}
-                </div>
-              )
-            );
-          })
-          .filter(Boolean)}
-      </div>
-    </>
+      {Object.keys(content)
+        .map((key) => {
+          const modalKey = key as ModalIdsType;
+          const show = isModalVisible(modalKey);
+          return (
+            show && (
+              <div
+                style={{ zIndex: getZindex(modalKey), position: "fixed" }}
+                key={modalKey}
+              >
+                {content[modalKey]}
+              </div>
+            )
+          );
+        })
+        .filter(Boolean)}
+    </div>
   );
 };
 

@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { useModals } from "@/hooks";
 import type { IAddAccountProps } from "./register.interface";
 import { Form } from "./Form";
 import styles from "./register.styles.module.scss";
