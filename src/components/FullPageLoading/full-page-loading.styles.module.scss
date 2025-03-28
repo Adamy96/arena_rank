@@ -1,0 +1,16 @@
+.fullPageLoading {
+  position: fixed;
+  width: 100vw;
+  background: rgba(200, 200, 200, 0.3);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  top: 0;
+  display: flex;
+  height: 100vh;
+  height: -moz-available;
+  height: stretch;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

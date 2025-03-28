@@ -1,0 +1,14 @@
+.success {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-top: 16px;
+    background-color: var(--color-main-dark);
+    color: var(--color-neutral-lighter);
+    font-weight: 700;
+    height: 36px;
+    border: 0;
+    border-radius: 4px;
+  }
+}

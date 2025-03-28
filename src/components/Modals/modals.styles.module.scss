@@ -1,0 +1,74 @@
+.modalContainer {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+}
+
+.modalOverlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rightToLeft {
+  transition: right 0.3s ease;
+  right: -100%;
+}
+
+.rightToLeft.open {
+  transition: right 0.3s ease;
+  right: 0;
+}
+
+.bottomToTop {
+  transition: bottom 0.3s ease;
+  width: 100%;
+  bottom: -100%;
+}
+
+.bottomToTop.open {
+  transition: bottom 0.3s ease;
+  bottom: 0;
+}
+
+@media only screen and (min-width: 640px) {
+  .bottomToTop {
+    bottom: unset;
+    transition: right 0.3s ease;
+    right: -100%;
+  }
+
+  .bottomToTop.open {
+    transition: right 0.3s ease;
+    right: 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .rightToLeft {
+    opacity: 0;
+    transform: translate(50%, -50%);
+    top: 50%;
+    right: 50%;
+    transition: opacity 0.3s ease;
+  }
+
+  .rightToLeft.open {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    top: 50%;
+    right: 50%;
+  }
+}

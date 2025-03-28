@@ -27,11 +27,13 @@
 }
 
 .tableHeader {
-  grid-template-columns: 3fr 1fr 1fr;
+  // grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
 }
 
 .tableRow {
-  grid-template-columns: 3fr 1fr 1fr;
+  // grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
   background-color: #1e1d22;
   box-shadow: rgba(255, 255, 255, 0.06) 0px 2px 4px 0px inset;
   border-radius: 4px;
@@ -54,8 +56,10 @@
 }
 
 @media only screen and (max-width: 1023px) {
+  .tableHeader > :nth-child(3),
   .tableHeader > :nth-child(4),
   .tableHeader > :nth-child(5),
+  .tableRow > :nth-child(3),
   .tableRow > :nth-child(4),
   .tableRow > :nth-child(5) {
     display: none;

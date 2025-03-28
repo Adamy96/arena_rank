@@ -1,0 +1,32 @@
+.messageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--color-neutral-light-o10);
+  border-radius: 4px;
+
+  padding: 16px;
+
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .title {
+      color: var(--color-neutral-lightest);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    img {
+      margin-left: 8px;
+    }
+  }
+
+  .text {
+    color: var(--color-neutral-lighter);
+    font-size: 12px;
+    line-height: 150%;
+  }
+}

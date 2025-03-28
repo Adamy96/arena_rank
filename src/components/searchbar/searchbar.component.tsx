@@ -14,11 +14,10 @@ const SearchBar: React.FC<ISearchBarProps> = ({
   className,
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
-
   const debouncedQuery = useDebounce(searchQuery, 700);
 
   React.useEffect(() => {
-    if (debouncedQuery) {
+    if (debouncedQuery.length) {
       onSearch(debouncedQuery);
     } else {
       onSearch("");

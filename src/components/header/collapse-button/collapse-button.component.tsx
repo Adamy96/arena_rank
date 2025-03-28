@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./collapse-button.styles.module.scss";
-import type { ICollapseButton } from "./collapse-button.interface";
+import type { ICollapseButton } from "@/components/Header/Collapse-button/collapse-button.interface";
 
 const CollapseButton: React.FC<ICollapseButton> = ({
   icon,

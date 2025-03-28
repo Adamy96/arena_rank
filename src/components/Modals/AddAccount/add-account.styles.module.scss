@@ -1,0 +1,52 @@
+.addAccount {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  padding: 24px 16px;
+  background-image: url("/images/champions/evelynn_bg.png");
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+
+  .closeBtn {
+    align-self: flex-end;
+    margin-bottom: 16px;
+  }
+
+  .messageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--color-neutral-light-o10);
+    border-radius: 4px;
+    margin: 16px 0 40px;
+    padding: 16px;
+
+    .title {
+      color: var(--color-neutral-lightest);
+      margin-bottom: 16px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .text {
+      color: var(--color-neutral-lighter);
+      font-size: 12px;
+      line-height: 150%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .addAccount {
+    max-width: 400px;
+    height: fit-content;
+    border-radius: 8px;
+    padding: 24px;
+
+    background-position-y: 30%;
+  }
+}

@@ -1,14 +1,16 @@
 "use client";
 
 import { Logo, SearchBar } from "@/components";
+import { CollapseButton } from "./Collapse-button";
 import { colors } from "@/styles/variables";
-import { useWindowSize } from "@/hooks";
+import { useWindowSize, useModals } from "@/hooks";
 import styles from "./header.styles.module.scss";
-import { CollapseButton } from "./collapse-button";
 import { addUser, info } from "../../../public/svgs";
 
 const Header = () => {
   const { isDesktop } = useWindowSize();
+  const { openModal } = useModals();
+
   return (
     <>
       <div className={styles.top}>
@@ -41,7 +43,7 @@ const Header = () => {
                   color={colors.colorNeutralLightest}
                   collapsed={false}
                   size={36}
-                  onClick={() => alert("Em desenvolvimento")}
+                  onClick={() => openModal({ modalId: "addAccount" })}
                   text="Adicionar"
                 />
               </div>
@@ -73,7 +75,7 @@ const Header = () => {
             color={colors.colorNeutralLightest}
             collapsed={true}
             size={36}
-            onClick={() => alert("Em desenvolvimento")}
+            onClick={() => openModal({ modalId: "addAccount" })}
             text="Adicionar"
           />
         </div>
