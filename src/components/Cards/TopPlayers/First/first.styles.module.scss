@@ -1,0 +1,11 @@
+.first {
+  position: relative;
+  width: 400px;
+  height: 400px;
+
+  .bgImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

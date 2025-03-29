@@ -1,4 +1,6 @@
 .top {
+  position: relative;
+  z-index: 100;
   background-color: var(--color-neutral-darkest);
 
   .container {
@@ -11,6 +13,8 @@
 }
 
 .bottom {
+  position: relative;
+  z-index: 100;
   padding: 0 16px;
   border-top: 2px solid var(--color-neutral-dark);
   height: 60px;
@@ -21,6 +25,7 @@
   position: sticky;
   top: 0;
   border-radius: 0 0 8px 8px;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
 
   .searchBarContainer {
     height: 36px;
@@ -50,6 +55,8 @@
     height: 80px;
     position: sticky;
     top: 0;
+
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
 
     .container {
       padding: 0;

@@ -1,0 +1,72 @@
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  z-index: 1;
+
+  .userContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > img {
+      border-radius: 8px;
+    }
+
+    .user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        margin-top: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffdc75e6;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--color-neutral-light);
+      }
+    }
+  }
+
+  .mostPlayed {
+    margin-top: 16px;
+
+    p {
+      color: var(--color-neutral-light);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .ladderPoints {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    gap: 8px;
+    color: #4bd0f8;
+  }
+
+  .winrateContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    width: 120px;
+
+    > div {
+      height: 24px;
+      width: 100%;
+    }
+  }
+}

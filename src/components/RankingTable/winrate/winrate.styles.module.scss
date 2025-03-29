@@ -31,7 +31,6 @@
 @media only screen and (min-width: 1024px) {
   .winrate {
     display: flex;
-    align-items: stretch;
     width: 60%;
     border-radius: 4px;
     overflow: hidden;
@@ -42,6 +41,7 @@
       display: block;
       line-height: 24px;
       font-size: 10px;
+      text-align: center;
 
       strong {
         font-size: 12px;
@@ -50,6 +50,8 @@
 
     div {
       border-radius: 0;
+      text-align: center;
+      font-size: 12px;
     }
   }
 }

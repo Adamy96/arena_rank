@@ -10,7 +10,7 @@ const useRankingTable = () => {
     isDesktop: boolean | undefined
   ): React.JSX.Element[][] => {
     return players
-      .slice(3)
+      .slice(isDesktop ? 3 : 0)
       .map((player, idx) => [
         <Player
           key={idx}
