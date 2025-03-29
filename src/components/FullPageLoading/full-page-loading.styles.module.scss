@@ -1,7 +1,7 @@
 .fullPageLoading {
   position: fixed;
   width: 100vw;
-  background: rgba(200, 200, 200, 0.3);
+  background-color: var(--color-neutral-darkest-o60);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   top: 0;

@@ -13,10 +13,10 @@ const AddAccount: React.FC<IAddAccountProps> = ({ className }) => {
   const { closeModal } = useModals();
   const [form, setForm] = useState<{
     playerName: string;
-    status: "success" | "error" | "";
+    status: 200 | 201 | 404 | 500 | null;
   }>({
     playerName: "",
-    status: "",
+    status: null,
   });
 
   return (
@@ -31,8 +31,10 @@ const AddAccount: React.FC<IAddAccountProps> = ({ className }) => {
       />
 
       {!form.status && <Register form={form} setForm={setForm} />}
-      {form.status === "success" && <Success />}
-      {form.status === "error" && <Error form={form} setForm={setForm} />}
+      {(form.status === 200 || form.status === 201) && <Success />}
+      {(form.status === 500 || form.status === 404) && (
+        <Error form={form} setForm={setForm} />
+      )}
     </div>
   );
 };

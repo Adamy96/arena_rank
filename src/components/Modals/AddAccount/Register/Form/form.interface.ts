@@ -1,7 +1,7 @@
 export interface IFormProps {
   form: {
     playerName: string;
-    status: "success" | "error" | "";
+    status: 200 | 201 | 404 | 500 | null;
   };
   setForm: (e: any) => void;
 }
