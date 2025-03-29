@@ -1,6 +1,6 @@
 "use server";
 
-export async function register(tagLine: string, gameName: string) {
+export async function register(gameName: string, tagLine: string) {
   if (!tagLine || !gameName) {
     throw new Error("tagLine e gameName são obrigatórios");
   }
