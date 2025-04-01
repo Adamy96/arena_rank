@@ -2,7 +2,7 @@ import { Message } from "../Message";
 import { useModals } from "@/hooks";
 import styles from "./success.styles.module.scss";
 
-const Success: React.FC<any> = ({ form, setForm }) => {
+const Success: React.FC<any> = ({ form }) => {
   const { closeModal } = useModals();
 
   const getTitle = () => {

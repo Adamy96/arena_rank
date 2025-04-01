@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo, SearchBar } from "@/components";
+import { Logo } from "@/components";
 import { CollapseButton } from "./Collapse-button";
 import { colors } from "@/styles/variables";
 import { useWindowSize, useModals } from "@/hooks";
