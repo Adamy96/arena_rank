@@ -19,12 +19,17 @@ export async function register(gameName: string, tagLine: string) {
       if (response.status === 404) {
         return { status: 404 };
       }
+
+      if (response.status === 400) {
+        return { status: 400 };
+      }
       return { status: 500 };
     }
 
     const data = await response.json();
     return { status: 200, ...data };
   } catch (error) {
+    console.log("catch error:", error);
     throw new Error(`Erro ao tentar registrar o jogador ${error}`);
   }
 }

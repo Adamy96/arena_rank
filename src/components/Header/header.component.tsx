@@ -21,11 +21,11 @@ const Header = () => {
           {isDesktop && (
             <>
               <div className={styles.searchBarContainer}>
-                <SearchBar
+                {/* <SearchBar
                   onSearch={(e) => console.log(e)}
                   onClick={() => alert("Em desenvolvimento")}
                   placeholder="Nome no jogo + #tag"
-                />
+                /> */}
               </div>
               <div className={styles.btnsContainer}>
                 <CollapseButton
@@ -53,11 +53,11 @@ const Header = () => {
       </div>
       <div className={styles.bottom}>
         <div className={styles.searchBarContainer}>
-          <SearchBar
+          {/* <SearchBar
             onSearch={(e) => console.log(e)}
             onClick={() => alert("Em desenvolvimento")}
             placeholder="Nome no jogo + #tag"
-          />
+          /> */}
         </div>
         <div className={styles.btnsContainer}>
           <CollapseButton
