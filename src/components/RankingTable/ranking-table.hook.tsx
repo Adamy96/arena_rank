@@ -26,7 +26,7 @@ const useRankingTable = () => {
           wins={player.matchStats.win}
           losses={player.matchStats.loss}
         />,
-        <p key={idx}>null</p>,
+        <p key={idx}>{player.matchStats.averagePlacement.toFixed(1)}</p>,
         <ChampionList
           key={idx}
           championIds={player.matchStats.championsPlayed?.map(
