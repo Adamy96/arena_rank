@@ -11,7 +11,7 @@ const Winrate: React.FC<IWinrateProps> = ({ wins, losses, percentage }) => {
         <strong>{wins}</strong> W - <strong>{losses}</strong> L
       </p>
       <div className={`${styles.percentage} ${getBackgroundClass(percentage)}`}>
-        {Math.round(percentage)}%
+        {Math.round(percentage * 100)}%
       </div>
     </div>
   );

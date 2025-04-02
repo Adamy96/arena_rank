@@ -37,7 +37,7 @@ const Content: React.FC<any> = ({ player }) => {
       <div className={styles.winrateContainer}>
         <Winrate
           losses={player.matchStats.loss}
-          percentage={player.matchStats.winrate}
+          percentage={player.matchStats.winRate}
           wins={player.matchStats.win}
         />
       </div>
