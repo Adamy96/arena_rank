@@ -1,39 +1,41 @@
 import { revalidateTag } from "next/cache";
 
+export interface IChampionPlayed {
+  championId: string;
+  championName: string;
+}
+
+export interface IMatchStats {
+  win: number;
+  loss: number;
+  lastProcessedMatch: string;
+  recentGames: string[];
+  averagePlacement: number;
+  championsPlayed: IChampionPlayed[];
+  totalGames: number;
+  winRate: number;
+}
+
 export interface IPlayer {
-  colocacao: number;
-  delta_mmr: number;
-  last_games: number[];
-  losses: number;
-  nome: string;
-  pontuacao: number;
-  profile_icon_id: number;
+  id: string;
   puuid: string;
-  riot_id: string;
-  streak: {
-    tipo: string;
-    valor: number;
-  };
-  ultima_atualização: string;
-  winrate: number;
-  wins: number;
+  tagLine: string;
+  gameName: string;
+  profileIconId: number;
+  pdl: number;
+  matchStats: IMatchStats;
+  lastUpdate: string | null;
+  trackingEnabled: boolean;
+  dateAdded: string;
+  rankPosition: number;
 }
 
-interface ISystem {
-  total_jogadores: number;
-}
-
-interface IResponse {
-  players: IPlayer[];
-  sistema: ISystem;
-}
-
-const fetchPlayers = async (): Promise<IResponse> => {
+const fetchPlayers = async (): Promise<IPlayer[]> => {
   "use server";
 
   try {
     const response = await fetch(
-      "https://arenaapi.zapto.org:3000/api/players",
+      "https://arenaapi.zapto.org:3002/api/Player/Ranking",
       {
         next: { tags: ["players"], revalidate: 120 },
       }

@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import type { IPlayerProps } from "./player.interface";
-import { userUtils } from "@/utils";
 import { useWindowSize } from "@/hooks";
 import styles from "./player.styles.module.scss";
 
-const Player: React.FC<IPlayerProps> = ({ icon, rank, user }) => {
+const Player: React.FC<IPlayerProps> = ({ icon, rank, gameName, tagLine }) => {
   const { isDesktop } = useWindowSize();
   return (
     <div className={styles.player}>
@@ -19,8 +18,8 @@ const Player: React.FC<IPlayerProps> = ({ icon, rank, user }) => {
           src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/profileicon/${icon}.png`}
         />
         <div>
-          <p>{userUtils.getNickname(user.replaceAll("%20", " "))}</p>
-          <span>#{userUtils.getHashtag(user.replaceAll("%20", " "))}</span>
+          <p>{gameName}</p>
+          <span>#{tagLine}</span>
         </div>
       </div>
     </div>

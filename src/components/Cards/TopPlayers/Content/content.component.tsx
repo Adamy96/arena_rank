@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { ChampionList } from "@/components";
-import { userUtils } from "@/utils";
 import { Winrate } from "@/components/RankingTable/winrate";
 import styles from "./content.styles.module.scss";
+import type { IChampionPlayed } from "@/services";
 
 const Content: React.FC<any> = ({ player }) => {
   return (
@@ -13,30 +13,32 @@ const Content: React.FC<any> = ({ player }) => {
           width={60}
           height={60}
           alt="Emblema do ranking (challanger)"
-          src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/profileicon/${player.profile_icon_id}.png`}
+          src={`https://ddragon.leagueoflegends.com/cdn/15.6.1/img/profileicon/${player.profileIconId}.png`}
         />
         <div className={styles.user}>
-          <p>{userUtils.getNickname(player.riot_id)}</p>
-          <span>#{userUtils.getHashtag(player.riot_id).toUpperCase()}</span>
+          <p>{player.gameName.replace(/%20/gi, " ")}</p>
+          <span>#{player.tagLine}</span>
         </div>
       </div>
       <div className={styles.mostPlayed}>
         <p>Campeões mais jogados</p>
         <ChampionList
-          championIds={player.last_games}
+          championIds={player.matchStats.championsPlayed?.map(
+            (data: IChampionPlayed) => data.championId
+          )}
           size={32}
           displayMax={3}
         />
       </div>
       <div className={styles.ladderPoints}>
-        <p>{player.pontuacao} LP</p>
+        <p>{player.pdl} LP</p>
       </div>
 
       <div className={styles.winrateContainer}>
         <Winrate
-          losses={player.losses}
-          percentage={player.winrate}
-          wins={player.wins}
+          losses={player.matchStats.loss}
+          percentage={player.matchStats.winrate}
+          wins={player.matchStats.win}
         />
       </div>
     </div>

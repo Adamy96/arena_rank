@@ -1,5 +1,6 @@
 export interface IPlayerProps {
   rank: number;
   icon: number;
-  user: string;
+  gameName: string;
+  tagLine: string;
 }

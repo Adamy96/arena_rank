@@ -9,11 +9,11 @@ const Homepage = async () => {
     <div className={styles.homepage}>
       <div className={styles.content}>
         <div className={styles.rankingContainer}>
-          <TopPlayers players={playersData.players.slice(0, 3)} />
+          <TopPlayers players={playersData.slice(0, 3)} />
           <button onClick={revalidatePlayersData} className={styles.refresh}>
             Atualizar ranking
           </button>
-          <RankingTable players={playersData.players} />
+          <RankingTable players={playersData} />
         </div>
       </div>
     </div>

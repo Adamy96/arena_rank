@@ -14,21 +14,24 @@ const useRankingTable = () => {
       .map((player, idx) => [
         <Player
           key={idx}
-          icon={player.profile_icon_id}
-          rank={player.colocacao}
-          user={player.riot_id}
+          icon={player.profileIconId}
+          rank={player.rankPosition}
+          gameName={player.gameName.replace(/%20/gi, " ")}
+          tagLine={player.tagLine}
         />,
-        <Rank key={idx} points={player.pontuacao} />,
+        <Rank key={idx} points={player.pdl} />,
         <Winrate
           key={idx}
-          percentage={player.winrate}
-          wins={player.wins}
-          losses={player.losses}
+          percentage={player.matchStats.winRate}
+          wins={player.matchStats.win}
+          losses={player.matchStats.loss}
         />,
         <p key={idx}>null</p>,
         <ChampionList
           key={idx}
-          championIds={player.last_games}
+          championIds={player.matchStats.championsPlayed?.map(
+            (data) => +data.championId
+          )}
           size={isDesktop ? 28 : 24}
           displayMax={4}
         />,
