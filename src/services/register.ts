@@ -30,8 +30,6 @@ export async function register(gameName: string, tagLine: string) {
     return { status: 200, ...data };
   } catch (error) {
     console.log("catch error:", error);
-    throw new Error(`Erro ao tentar registrar o jogador ${error}`);
-  } finally {
     return { status: 500 };
   }
 }
