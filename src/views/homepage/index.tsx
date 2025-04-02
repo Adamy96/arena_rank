@@ -10,9 +10,9 @@ const Homepage = async () => {
       <div className={styles.content}>
         <div className={styles.rankingContainer}>
           <TopPlayers players={playersData.slice(0, 3)} />
-          <button onClick={revalidatePlayersData} className={styles.refresh}>
+          {/* <button onClick={revalidatePlayersData} className={styles.refresh}>
             Atualizar ranking
-          </button>
+          </button> */}
           <RankingTable players={playersData} />
         </div>
       </div>
