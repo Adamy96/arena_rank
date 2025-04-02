@@ -1,5 +1,5 @@
 import { RankingTable, TopPlayers } from "@/components";
-import { fetchPlayers, revalidatePlayersData } from "@/services";
+import { fetchPlayers } from "@/services";
 import styles from "./styles.module.scss";
 
 const Homepage = async () => {
