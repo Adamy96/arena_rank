@@ -41,6 +41,7 @@ const formatter = new Intl.DateTimeFormat("pt-BR", {
 
 const fetchPlayers = async (): Promise<IPlayer[]> => {
   const now = new Date();
+  console.log(`Fetch players called at ${formatter.format(now)}`);
   logger.info(`Fetch players called at ${formatter.format(now)}`);
 
   try {
@@ -54,13 +55,16 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
     const textResponse = await response.text();
 
     if (!response.ok) {
+      console.log("Fetch players !response.ok", textResponse);
       logger.error("Fetch players !response.ok", textResponse);
       throw new Error(`Error HTTP: ${response.status}`);
     }
 
+    console.log("Fetch players response.ok:", JSON.parse(textResponse));
     logger.info("Fetch players response.ok:", JSON.parse(textResponse));
     return JSON.parse(textResponse);
   } catch (error) {
+    console.log("Fetch players catch", error);
     logger.error("Fetch players catch", error);
     throw new Error("Failed to fetch players");
   }
