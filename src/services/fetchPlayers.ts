@@ -49,9 +49,12 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
       "https://arenaapi.zapto.org:3002/api/Player/Ranking",
       {
         next: { tags: ["players"], revalidate: 120 },
+        signal: AbortSignal.timeout(5000),
       }
     );
 
+    const now2 = new Date();
+    console.log(`FetchPlayers completed at ${formatter.format(now2)}`);
     const textResponse = await response.text();
 
     if (!response.ok) {
@@ -61,7 +64,7 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
     }
 
     console.log(
-      "Fetch players response.ok:",
+      `Fetch players response.ok`,
       JSON.parse(textResponse)?.splice(0, 10)
     );
     logger.info(
