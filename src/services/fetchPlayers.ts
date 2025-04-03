@@ -49,7 +49,6 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
       "https://arenaapi.zapto.org:3002/api/Player/Ranking",
       {
         next: { tags: ["players"], revalidate: 120 },
-        signal: AbortSignal.timeout(120000),
       }
     );
 
