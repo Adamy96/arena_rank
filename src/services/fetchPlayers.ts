@@ -73,8 +73,8 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
     }
 
     const data = await response.json();
-    console.log(`Fetch players response.ok`, data?.splice(0, 10));
-    logger.info("Fetch players response.ok:", data?.splice(0, 10));
+    console.log(`Fetch players response.ok`, data?.slice(0, 10));
+    logger.info("Fetch players response.ok:", data?.slice(0, 10));
 
     return data;
   } catch (error) {
