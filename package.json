@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
+    "aws-amplify": "^6.14.1",
     "lottie-react": "^2.4.1",
     "next": "15.1.3",
     "react": "^19.0.0",

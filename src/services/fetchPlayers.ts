@@ -1,3 +1,8 @@
+import { ConsoleLogger } from "aws-amplify/utils";
+// ConsoleLogger.LOG_LEVEL = "DEBUG";
+
+const logger = new ConsoleLogger("PlayerFetchLogger");
+
 export interface IChampionPlayed {
   championId: string;
   championName: string;
@@ -36,7 +41,8 @@ const formatter = new Intl.DateTimeFormat("pt-BR", {
 
 const fetchPlayers = async (): Promise<IPlayer[]> => {
   const now = new Date();
-  console.log("Fetch players called:", formatter.format(now));
+  logger.info(`Fetch players called at ${formatter.format(now)}`);
+
   try {
     const response = await fetch(
       "https://arenaapi.zapto.org:3002/api/Player/Ranking",
@@ -48,14 +54,14 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
     const textResponse = await response.text();
 
     if (!response.ok) {
-      console.log(`Fetch players !response.ok: ${textResponse}`);
+      logger.error("Fetch players !response.ok", textResponse);
       throw new Error(`Error HTTP: ${response.status}`);
     }
 
-    console.log(`Fetch players response.ok: ${JSON.parse(textResponse)}`);
+    logger.info("Fetch players response.ok:", JSON.parse(textResponse));
     return JSON.parse(textResponse);
   } catch (error) {
-    console.log(`Fetch players catch ${error}`);
+    logger.error("Fetch players catch", error);
     throw new Error("Failed to fetch players");
   }
 };
