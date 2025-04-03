@@ -60,8 +60,14 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
       throw new Error(`Error HTTP: ${response.status}`);
     }
 
-    console.log("Fetch players response.ok:", JSON.parse(textResponse));
-    logger.info("Fetch players response.ok:", JSON.parse(textResponse));
+    console.log(
+      "Fetch players response.ok:",
+      JSON.parse(textResponse)?.splice(0, 10)
+    );
+    logger.info(
+      "Fetch players response.ok:",
+      JSON.parse(textResponse)?.splice(0, 10)
+    );
     return JSON.parse(textResponse);
   } catch (error) {
     console.log("Fetch players catch", error);
