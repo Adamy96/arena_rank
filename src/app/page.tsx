@@ -1,5 +1,10 @@
 import { Homepage } from "@/views";
+import { fetchPlayers } from "@/services";
 
-export default function Home() {
-  return <Homepage />;
+export const revalidate = 120;
+
+export default async function Home() {
+  const playersData = await fetchPlayers();
+
+  return <Homepage playersData={playersData} />;
 }

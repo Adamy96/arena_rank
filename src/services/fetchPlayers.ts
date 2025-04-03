@@ -1,5 +1,3 @@
-import { revalidateTag } from "next/cache";
-
 export interface IChampionPlayed {
   championId: string;
   championName: string;
@@ -30,9 +28,15 @@ export interface IPlayer {
   rankPosition: number;
 }
 
-const fetchPlayers = async (): Promise<IPlayer[]> => {
-  "use server";
+const formatter = new Intl.DateTimeFormat("pt-BR", {
+  timeZone: "America/Sao_Paulo",
+  dateStyle: "full",
+  timeStyle: "medium",
+});
 
+const fetchPlayers = async (): Promise<IPlayer[]> => {
+  const now = new Date();
+  console.log("Fetch players called:", formatter.format(now));
   try {
     const response = await fetch(
       "https://arenaapi.zapto.org:3002/api/Player/Ranking",
@@ -40,18 +44,19 @@ const fetchPlayers = async (): Promise<IPlayer[]> => {
         next: { tags: ["players"], revalidate: 120 },
       }
     );
+
+    const textResponse = await response.text();
+
     if (!response.ok) {
+      console.log(`Fetch players !response.ok: ${textResponse}`);
       throw new Error(`Error HTTP: ${response.status}`);
     }
-    return await response.json();
-  } catch {
+
+    return JSON.parse(textResponse);
+  } catch (error) {
+    console.log(`Fetch players catch ${error}`);
     throw new Error("Failed to fetch players");
   }
 };
 
-const revalidatePlayersData = async () => {
-  "use server";
-  await revalidateTag("players");
-};
-
-export { fetchPlayers, revalidatePlayersData };
+export { fetchPlayers };

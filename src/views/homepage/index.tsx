@@ -1,10 +1,8 @@
 import { RankingTable, TopPlayers } from "@/components";
-import { fetchPlayers } from "@/services";
 import styles from "./styles.module.scss";
+import type { IPlayer } from "@/services";
 
-const Homepage = async () => {
-  const playersData = await fetchPlayers();
-
+const Homepage = async ({ playersData }: { playersData: IPlayer[] }) => {
   return (
     <div className={styles.homepage}>
       <div className={styles.content}>
